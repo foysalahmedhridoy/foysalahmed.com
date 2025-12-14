@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foysal Ahmed - Personal BIO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a1931, #185adb, #1e56a0);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        header {
+            background: linear-gradient(to right, #0a1931, #185adb);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .profile-container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 25px;
+        }
+        
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+        
+        /* এখানে তোমার প্রোফাইল ছবি বসবে */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.8);
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 50px;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 35px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 25px;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .title {
+                font-size: 1.1rem;
+            }
+            
+            .profile-img-container {
+                width: 170px;
+                height: 170px;
+            }
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: #0a1931;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #185adb;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 12px;
+            font-size: 1.4rem;
+            color: #185adb;
+        }
+        
+        .info-item {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info-item i {
+            color: #185adb;
+            width: 25px;
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 1.2rem;
+        }
+        
+        .info-text {
+            flex: 1;
+        }
+        
+        .info-text strong {
+            color: #0a1931;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .company-link {
+            color: #185adb;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px dotted #185adb;
+            transition: all 0.3s ease;
+        }
+        
+        .company-link:hover {
+            color: #0a1931;
+            border-bottom: 2px solid #0a1931;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            font-weight: 500;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .whatsapp { background-color: #25D366; color: white; }
+        .facebook { background-color: #1877F2; color: white; }
+        .instagram { background: linear-gradient(45deg, #405DE6, #E1306C, #F77737); color: white; }
+        .twitter { background-color: #1DA1F2; color: white; }
+        .phone { background-color: #0a1931; color: white; }
+        .email { background-color: #EA4335; color: white; }
+        
+        .whatsapp:hover { background-color: #128C7E; }
+        .facebook:hover { background-color: #0D5FCC; }
+        .instagram:hover { background: linear-gradient(45deg, #3048C5, #C91C56, #E06625); }
+        .twitter:hover { background-color: #0C8BD9; }
+        .phone:hover { background-color: #071125; }
+        .email:hover { background-color: #D33426; }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(to right, #185adb, #1e56a0);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(24, 90, 219, 0.3);
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .highlight {
+            color: #185adb;
+            font-weight: 600;
+        }
+        
+        .mobile-show {
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-show {
+                display: block;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Image Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            color: #185adb;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <div class="profile-img-container">
+                    <!-- তোমার প্রোফাইল ছবি এখানে বসানো হয়েছে -->
+                    <img src="https://i.postimg.cc/PP1v4NvD/FB-IMG-1764133703096.jpg" 
+                         alt="Foysal Ahmed" 
+                         class="profile-img"
+                         id="profileImage">
+                </div>
+                <h1 class="name">Foysal Ahmed</h1>
+                <p class="title">Political Science Student | ISP Engineer | Web Developer</p>
+                <p class="title mobile-show">Manager at Zajira Online</p>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-user-graduate"></i> Educational Qualification</h2>
+                    <div class="info-item">
+                        <i class="fas fa-university"></i>
+                        <div class="info-text">
+                            <strong>Shariatpur Government College</strong>
+                            Department of Political Science (Honors 3rd Year)
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-book-open"></i>
+                        <div class="info-text">
+                            <strong>Parashona</strong>
+                            Online Education Platform
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Life</h2>
+                    <div class="info-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div class="info-text">
+                            <strong>Manager</strong>
+                            <a href="https://zajiraonline.com" target="_blank" class="company-link">Zajira Online</a> - Click to visit website
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div class="info-text">
+                            <strong>ISP Engineer</strong>
+                            Internet Service Provider Engineer
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-code"></i>
+                        <div class="info-text">
+                            <strong>Web Developer</strong>
+                            Front-end & Back-end Web Development
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-star"></i> Skills & Expertise</h2>
+                    <div class="skills">
+                        <div class="skill-tag">Networking</div>
+                        <div class="skill-tag">Team Management</div>
+                        <div class="skill-tag">Political Science</div>
+                        <div class="skill-tag">Online Marketing</div>
+                        <div class="skill-tag">Customer Service</div>
+                        <div class="skill-tag">Technical Solutions</div>
+                        <div class="skill-tag">Web Development</div>
+                        <div class="skill-tag">HTML/CSS</div>
+                        <div class="skill-tag">JavaScript</div>
+                        <div class="skill-tag">Responsive Design</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-address-book"></i> Contact Information</h2>
+                    <div class="info-item">
+                        <i class="fas fa-mobile-alt phone"></i>
+                        <div class="info-text">
+                            <strong>Mobile Number</strong>
+                            <span class="highlight">+8801942256787</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope email"></i>
+                        <div class="info-text">
+                            <strong>Email Address</strong>
+                            <span class="highlight">foysalvai11@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-links">
+                        <a href="https://wa.me/qr/Y3YOXQ3D6Q6OA1" target="_blank" class="contact-link whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://www.facebook.com/foysalvai002" target="_blank" class="contact-link facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/foysal5463?igsh=MXMwM2l3cXVpZ3pkNg==" target="_blank" class="contact-link instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://x.com/vai_foysal95447?t=nfdothJR19AoNLqS_2LGDQ&s=09" target="_blank" class="contact-link twitter">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="tel:01942256787" class="contact-link phone">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                        <a href="mailto:foysalvai11@gmail.com" class="contact-link email">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> Personal Information</h2>
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <div class="info-text">
+                            <strong>Personality</strong>
+                            Dedicated, goal-oriented and hardworking
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <div class="info-text">
+                            <strong>Political Science</strong>
+                            Deep interest in politics, administration and government
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-globe"></i>
+                        <div class="info-text">
+                            <strong>Zajira Online</strong>
+                            Active in online business and service expansion
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="info-text">
+                            <strong>Web Development</strong>
+                            Passionate about creating functional and beautiful websites
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-bullseye"></i> Goals & Aspirations</h2>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="info-text">
+                            <strong>Educational Goal</strong>
+                            Achieve Masters degree in Political Science
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="info-text">
+                            <strong>Professional Goal</strong>
+                            Become an established expert in ISP industry
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-code"></i>
+                        <div class="info-text">
+                            <strong>Development Goal</strong>
+                            Become a full-stack web developer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p class="copyright">© 2023 Foysal Ahmed | All Rights Reserved</p>
+            <p class="copyright">Shariatpur Government College | Department of Political Science</p>
+            <p class="copyright">Email: <span class="highlight">foysalvai11@gmail.com</span> | Mobile: <span class="highlight">+8801942256787</span></p>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        // Profile image click functionality
+        const profileImage = document.getElementById('profileImage');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        
+        // When profile image is clicked, show it in modal
+        profileImage.addEventListener('click', function() {
+            modalImage.src = this.src;
+            imageModal.style.display = 'flex';
+        });
+        
+        // Close modal when X is clicked
+        closeModal.addEventListener('click', function() {
+            imageModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+        
+        // Social media link tracking (optional)
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const platform = this.querySelector('i').className.split(' ')[1].replace('fa-', '');
+                console.log(`Clicked on ${platform} link`);
+            });
+        });
+        
+        // Company link click
+        document.querySelector('.company-link').addEventListener('click', function() {
+            console.log('Clicked on Zajira Online website link');
+        });
+        
+        // Page load message
+        window.addEventListener('load', function() {
+            console.log("Foysal Ahmed's BIO website loaded successfully");
+        });
+    </script>
+</body>
+</html>
